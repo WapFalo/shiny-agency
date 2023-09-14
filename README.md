@@ -1,6 +1,6 @@
 # shiny-agency
 
-This project is a course followed on OpenClassroom which aimed getting the hang of React.js, it can be found here: https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete
+This project is a course followed on OpenClassroom which is aimed at getting the hang of React.js, it can be found here: https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete
 
 # Getting Started with Create React App
 
