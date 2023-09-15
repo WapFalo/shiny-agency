@@ -1,20 +1,33 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { StyledLink } from '../../utils/styles/atoms'
+import darkLogo from '../../assets/dark-logo.png'
 
-const StyledLink = styled(Link)`
-  padding: 15px;
-  color: #8186a0;
-  text-decoration: none;
-  font-size: 18px;
+const HomeLogo = styled.img`
+  height: 70px;
+`
+
+const NavContainer = styled.nav`
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 function Header() {
   return (
-    <nav>
-      <StyledLink to="/">Accueil</StyledLink>
-      <StyledLink to="/survey/42">Questionnaire</StyledLink>
-      <StyledLink to="/freelances">Profils</StyledLink>
-    </nav>
+    <NavContainer>
+      <Link to="/">
+        <HomeLogo src={darkLogo} />
+      </Link>
+      <div>
+        <StyledLink to="/">Accueil</StyledLink>
+        <StyledLink to="/freelances">Profils</StyledLink>
+        <StyledLink to="/survey/1" $isFullLink>
+          Faire le test
+        </StyledLink>
+      </div>
+    </NavContainer>
   )
 }
 
