@@ -6,6 +6,10 @@ This project is a course followed on OpenClassroom which is aimed at getting the
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# API-React-Intermediaire
+
+For the survey to work you are going to need to download the following API: https://github.com/OpenClassrooms-Student-Center/7150606-API-React-intermediaire , it will give you the questions for the survey and the freelances profile aswell.
+
 ## Available Scripts
 
 In the project directory, you can run:
