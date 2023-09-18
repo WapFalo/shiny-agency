@@ -1,32 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/home'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
 import Survey from './pages/Survey'
-import Header from './components/header'
-import Error from './components/error'
-import Freelances from './pages/Freelances'
 import Results from './pages/Results'
-import { createGlobalStyle } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-    div {
-        font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    }
-`
+import Freelances from './pages/Freelances'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Error from './components/Error'
+import GlobalStyle from './utils/style/GlobalStyle'
+import { ThemeProvider, SurveyProvider } from './utils/context'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/survey/:questionNumber" element={<Survey />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/freelances" element={<Freelances />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <ThemeProvider>
+        <SurveyProvider>
+          <GlobalStyle />
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route path="/survey/:questionNumber" element={<Survey />}></Route>
+            <Route path="/results" element={<Results />}></Route>
+            <Route path="/freelances" element={<Freelances />}></Route>
+            <Route path="*" element={<Error />}></Route>
+          </Routes>
+          <Footer />
+        </SurveyProvider>
+      </ThemeProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),

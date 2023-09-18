@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { StyledLink } from '../../utils/styles/atoms'
-import darkLogo from '../../assets/dark-logo.png'
+import { StyledLink } from '../../utils/style/Atoms'
+import DarkLogo from '../../assets/dark-logo.png'
 
 const HomeLogo = styled.img`
   height: 70px;
@@ -18,7 +18,7 @@ function Header() {
   return (
     <NavContainer>
       <Link to="/">
-        <HomeLogo src={darkLogo} />
+        <HomeLogo src={DarkLogo} />
       </Link>
       <div>
         <StyledLink to="/">Accueil</StyledLink>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import colors from '../../utils/styles/colors'
-import { StyledLink } from '../../utils/styles/atoms'
+import colors from '../../utils/style/colors'
+import { StyledLink } from '../../utils/style/Atoms'
 import HomeIllustration from '../../assets/home-illustration.svg'
 
 const HomeWrapper = styled.div`
@@ -10,7 +10,7 @@ const HomeWrapper = styled.div`
 
 const HomerContainer = styled.div`
   margin: 30px;
-  background-color: ${colors.background};
+  background-color: ${colors.backgroundLight};
   padding: 60px 90px;
   display: flex;
   flex-direction: row;
