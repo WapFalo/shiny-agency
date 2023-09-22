@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
+import { Component } from 'react'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
-import { useTheme } from '../../utils/hooks'
 import DefaultPicture from '../../assets/profile.png'
 
 const CardLabel = styled.span`
@@ -11,11 +11,14 @@ const CardLabel = styled.span`
   padding-left: 15px;
 `
 
-const CardTitle = styled.span`
+const CardTitle = styled.div`
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
   font-size: 22px;
   font-weight: normal;
   align-self: center;
+  height: 25px;
+  display: flex;
+  align-items: center;
 `
 
 const CardImage = styled.img`
@@ -40,28 +43,39 @@ const CardWrapper = styled.div`
   }
 `
 
-function Card({ label, title, picture }) {
-  const { theme } = useTheme()
+class Card extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isFavorite: false,
+    }
+  }
 
-  return (
-    <CardWrapper theme={theme}>
-      <CardLabel theme={theme}>{label}</CardLabel>
-      <CardImage src={picture} alt="freelance" />
-      <CardTitle theme={theme}>{title}</CardTitle>
-    </CardWrapper>
-  )
+  render() {
+    const { theme, picture, label, title } = this.props
+
+    return (
+      <CardWrapper theme={theme} onClick={this.setFavorite}>
+        <CardLabel theme={theme}>{label}</CardLabel>
+        <CardImage src={picture} alt="freelance" />
+        <CardTitle theme={theme}>{title}</CardTitle>
+      </CardWrapper>
+    )
+  }
 }
 
 Card.propTypes = {
   label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired,
 }
 
 Card.defaultProps = {
   label: '',
   title: '',
   picture: DefaultPicture,
+  theme: 'light',
 }
 
 export default Card
